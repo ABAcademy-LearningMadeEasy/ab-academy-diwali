@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Diwali | AB Academy</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #42280e, #100d0a 70%);
+    color: white;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* Main content */
+.container {
+    width: 92%;
+    max-width: 760px;
+    min-height: 100vh;
+    margin: auto;
+    padding: 45px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+}
+
+/* Academy branding */
+.brand {
+    color: #ffd36a;
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 7px;
+    margin-bottom: 12px;
+}
+
+.tagline {
+    color: #d7b98a;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+/* Main greeting */
+h1 {
+    font-size: clamp(45px, 10vw, 78px);
+    color: #ffd36a;
+    text-shadow: 0 0 15px #ff9d00, 0 0 35px #c87912;
+    margin: 15px 0;
+}
+
+.subtitle {
+    font-size: clamp(18px, 4vw, 27px);
+    color: #fff0cc;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.decor {
+    color: #e8a93e;
+    font-size: 22px;
+    margin: 15px 0 25px;
+}
+
+.message {
+    font-family: Arial, sans-serif;
+    color: #e5d8c5;
+    line-height: 1.9;
+    font-size: 16px;
+    max-width: 570px;
+    margin: auto;
+}
+
+.quote {
+    margin-top: 28px;
+    color: #ffce70;
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.learning {
+    margin-top: 25px;
+    font-family: Arial, sans-serif;
+    color: #ffcf75;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+/* Dancing diyas */
+.dancing-diyas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 38px;
+    margin: 25px 0;
+}
+
+.dancing-diyas span {
+    display: inline-block;
+    font-size: 42px;
+    filter: drop-shadow(0 0 12px orange);
+    animation: dance 1.4s ease-in-out infinite alternate;
+}
+
+.dancing-diyas span:nth-child(2) {
+    animation-delay: .45s;
+    font-size: 52px;
+}
+
+.dancing-diyas span:nth-child(3) {
+    animation-delay: .9s;
+}
+
+@keyframes dance {
+    0% {
+        transform: rotate(-12deg) translateY(0);
+    }
+    100% {
+        transform: rotate(12deg) translateY(-12px);
+    }
+}
+
+/* Floating golden particles */
+.sparkles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.sparkle {
+    position: absolute;
+    background: #ffd36a;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #ffb52e;
+    animation: float 7s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+/* Fireworks */
+.fireworks {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.burst {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ffd700;
+    box-shadow:
+        0 -30px #ffd700,
+        21px -21px orange,
+        30px 0 yellow,
+        21px 21px gold,
+        0 30px orange,
+        -21px 21px yellow,
+        -30px 0 gold,
+        -21px -21px orange;
+    animation: explode 1.5s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(.1);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* Crackers */
+.cracker {
+    position: fixed;
+    top: 25%;
+    font-size: 42px;
+    z-index: 2;
+    animation: crackerMove 2.5s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.cracker-left {
+    left: 4%;
+}
+
+.cracker-right {
+    right: 4%;
+    animation-delay: 1s;
+}
+
+@keyframes crackerMove {
+    from {
+        transform: translateY(0) rotate(-15deg);
+    }
+    to {
+        transform: translateY(30px) rotate(15deg);
+    }
+}
+
+/* Button */
+button {
+    margin: 25px auto 0;
+    padding: 15px 28px;
+    border: 1px solid #ffd36a;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #c17a1a, #f4bd50);
+    color: #211306;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 25px #f6b94c;
+}
+
+#wish {
+    margin-top: 20px;
+    color: #ffd36a;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 25px;
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid #73501f;
+    margin-top: 30px;
+    padding-top: 22px;
+    font-family: Arial, sans-serif;
+    color: #bda77f;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.footer strong {
+    color: #ffd36a;
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+/* Mobile layout */
+@media(max-width: 480px) {
+    .container {
+        padding: 35px 10px;
+    }
+
+    .brand {
+        letter-spacing: 5px;
+    }
+
+    .message {
+        font-size: 14px;
+    }
+
+    .quote {
+        font-size: 17px;
+    }
+
+    .cracker {
+        font-size: 25px;
+        top: 8%;
+    }
+
+    .cracker-left {
+        left: 3%;
+    }
+
+    .cracker-right {
+        right: 3%;
+    }
+
+    .dancing-diyas {
+        gap: 22px;
+    }
+
+    .dancing-diyas span {
+        font-size: 32px;
+    }
+
+    .dancing-diyas span:nth-child(2) {
+        font-size: 42px;
+    }
+}
+
+/* Reduce animation for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background animations -->
+<div class="sparkles" id="sparkles"></div>
+<div class="fireworks" id="fireworks"></div>
+
+<div class="cracker cracker-left">🎆</div>
+<div class="cracker cracker-right">🎇</div>
+
+<!-- Main page -->
+<div class="container">
+
+    <div class="brand">AB ACADEMY</div>
+
+    <div class="tagline">
+        LEARN • GROW • SHINE
+    </div>
+
+    <div class="dancing-diyas">
+        <span>🪔</span>
+        <span>🪔</span>
+        <span>🪔</span>
+    </div>
+
+    <h1>Happy Diwali!</h1>
+
+    <div class="subtitle">
+        A Celebration of Light, Knowledge & New Beginnings
+    </div>
+
+    <div class="decor">
+        ✦ ───── ✦ ───── ✦
+    </div>
+
+    <p class="message">
+        May the festival of lights brighten your homes
+        with happiness, your hearts with peace,
+        and your lives with endless opportunities.
+
+        <br><br>
+
+        May every new day bring you the courage to
+        dream, the wisdom to learn, and the strength
+        to achieve your goals.
+    </p>
+
+    <div class="quote">
+        "Let the light of knowledge shine brighter
+        than a thousand lamps!"
+    </div>
+
+    <div class="learning">
+        📚 Learn More. Dream Bigger. Shine Brighter. ✨
+    </div>
+
+    <button onclick="celebrate()">
+        ✨ Light Up Your Learning Journey!
+    </button>
+
+    <div id="wish"></div>
+
+    <div class="dancing-diyas">
+        <span>🎇</span>
+        <span>🪔</span>
+        <span>🎆</span>
+    </div>
+
+    <div class="footer">
+        With warm wishes and festive blessings,
+
+        <br>
+        <strong>AB ACADEMY</strong>
+
+        <br>
+
+        Wishing You and Your Family a Very Happy Diwali!
+    </div>
+
+</div>
+
+<script>
+
+// Floating golden particles
+const sparkleBox = document.getElementById("sparkles");
+
+for (let i = 0; i < 45; i++) {
+    const sparkle = document.createElement("div");
+
+    sparkle.className = "sparkle";
+    sparkle.style.left = Math.random() * 100 + "%";
+    sparkle.style.animationDelay = Math.random() * 7 + "s";
+    sparkle.style.animationDuration =
+        (5 + Math.random() * 6) + "s";
+
+    sparkleBox.appendChild(sparkle);
+}
+
+// Fireworks animation
+const fireworks = document.getElementById("fireworks");
+
+function makeFirework() {
+
+    const burst = document.createElement("div");
+
+    burst.className = "burst";
+
+    burst.style.left = (8 + Math.random() * 84) + "%";
+    burst.style.top = (8 + Math.random() * 75) + "%";
+
+    fireworks.appendChild(burst);
+
+    setTimeout(() => {
+        burst.remove();
+    }, 1500);
+}
+
+// Random fireworks
+setInterval(makeFirework, 1100);
+
+// Button interaction
+function celebrate() {
+
+    document.getElementById("wish").innerHTML =
+        "🪔 Keep learning, keep growing and keep shining! 🪔";
+
+    for (let i = 0; i < 10; i++) {
+        setTimeout(makeFirework, i * 180);
+    }
+}
+
+</script>
+
+</body>
+</html>
